@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "schaeffer-business-group": {
+      "projectType": "library",
+      "root": "projects/schaeffer-business-group",
+      "sourceRoot": "projects/schaeffer-business-group/src",
+      "prefix": "sbg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/schaeffer-business-group/tsconfig.lib.json",
+            "project": "projects/schaeffer-business-group/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/schaeffer-business-group/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/schaeffer-business-group/src/test.ts",
+            "tsConfig": "projects/schaeffer-business-group/tsconfig.spec.json",
+            "karmaConfig": "projects/schaeffer-business-group/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/schaeffer-business-group/tsconfig.lib.json",
+              "projects/schaeffer-business-group/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "schaeffer-business-group-site"
