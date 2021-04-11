@@ -3,5 +3,129 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "schaeffer-business-group-site": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/schaeffer-business-group-site",
+      "sourceRoot": "projects/schaeffer-business-group-site/src",
+      "prefix": "sbgs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/schaeffer-business-group-site",
+            "index": "projects/schaeffer-business-group-site/src/index.html",
+            "main": "projects/schaeffer-business-group-site/src/main.ts",
+            "polyfills": "projects/schaeffer-business-group-site/src/polyfills.ts",
+            "tsConfig": "projects/schaeffer-business-group-site/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/schaeffer-business-group-site/src/favicon.ico",
+              "projects/schaeffer-business-group-site/src/assets"
+            ],
+            "styles": [
+              "projects/schaeffer-business-group-site/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/schaeffer-business-group-site/src/environments/environment.ts",
+                  "with": "projects/schaeffer-business-group-site/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "schaeffer-business-group-site:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "schaeffer-business-group-site:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "schaeffer-business-group-site:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/schaeffer-business-group-site/src/test.ts",
+            "polyfills": "projects/schaeffer-business-group-site/src/polyfills.ts",
+            "tsConfig": "projects/schaeffer-business-group-site/tsconfig.spec.json",
+            "karmaConfig": "projects/schaeffer-business-group-site/karma.conf.js",
+            "assets": [
+              "projects/schaeffer-business-group-site/src/favicon.ico",
+              "projects/schaeffer-business-group-site/src/assets"
+            ],
+            "styles": [
+              "projects/schaeffer-business-group-site/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/schaeffer-business-group-site/tsconfig.app.json",
+              "projects/schaeffer-business-group-site/tsconfig.spec.json",
+              "projects/schaeffer-business-group-site/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/schaeffer-business-group-site/e2e/protractor.conf.js",
+            "devServerTarget": "schaeffer-business-group-site:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "schaeffer-business-group-site:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "schaeffer-business-group-site"
 }
