@@ -18,6 +18,10 @@
       "schaeffer-business-group": [
         "dist/schaeffer-business-group/schaeffer-business-group",
         "dist/schaeffer-business-group"
+      ],
+      "schaeffer-business-group-core": [
+        "dist/schaeffer-business-group-core/schaeffer-business-group-core",
+        "dist/schaeffer-business-group-core"
       ]
     },
     "target": "es2015",

@@ -165,6 +165,46 @@
           }
         }
       }
+    },
+    "schaeffer-business-group-core": {
+      "projectType": "library",
+      "root": "projects/schaeffer-business-group-core",
+      "sourceRoot": "projects/schaeffer-business-group-core/src",
+      "prefix": "sbgc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/schaeffer-business-group-core/tsconfig.lib.json",
+            "project": "projects/schaeffer-business-group-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/schaeffer-business-group-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/schaeffer-business-group-core/src/test.ts",
+            "tsConfig": "projects/schaeffer-business-group-core/tsconfig.spec.json",
+            "karmaConfig": "projects/schaeffer-business-group-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/schaeffer-business-group-core/tsconfig.lib.json",
+              "projects/schaeffer-business-group-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "schaeffer-business-group-site"
