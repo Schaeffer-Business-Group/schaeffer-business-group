@@ -100,15 +100,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/schaeffer-business-group-site/tsconfig.app.json",
-              "projects/schaeffer-business-group-site/tsconfig.spec.json",
-              "projects/schaeffer-business-group-site/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/schaeffer-business-group-site/**/*.ts",
+              "projects/schaeffer-business-group-site/**/*.html"
             ]
           }
         },
@@ -153,14 +149,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/schaeffer-business-group/tsconfig.lib.json",
-              "projects/schaeffer-business-group/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/schaeffer-business-group/**/*.ts",
+              "projects/schaeffer-business-group/**/*.html"
             ]
           }
         }
@@ -193,14 +186,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/schaeffer-business-group-core/tsconfig.lib.json",
-              "projects/schaeffer-business-group-core/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/schaeffer-business-group-core/**/*.ts",
+              "projects/schaeffer-business-group-core/**/*.html"
             ]
           }
         }
